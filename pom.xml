@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.radian</groupId>
-    <artifactId>cuwb2.0</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>cuwb2</artifactId>
+    <version>1.0</version>
     <packaging>war</packaging>
-    <name>cuwb2.0</name>
+    <name>cuwb2</name>
     <description>CUWBRewrite</description>
 
     <parent>
@@ -83,7 +83,7 @@
     </dependencies>
 
     <build>
-        <finalName>cuwb2.war</finalName>
+        <finalName>cuwb</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
