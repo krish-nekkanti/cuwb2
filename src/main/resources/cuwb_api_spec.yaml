@@ -1,0 +1,179 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Radian CUWB  API
+  description: Open API Specifications for Radian's CUWB
+  contact:
+    email: cuwb_admin@radian.com
+  license:
+    name: cuwb-api-0.0.1
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: www.radian.com
+basePath: /cuwb/rs/v1
+tags:
+  - name: /cuwb
+    description: CUWB Operations
+schemes:
+  - https
+  - http
+paths:
+  /user:
+    get:
+      tags:
+        - user
+      summary: Get User 
+      description: Get User
+      operationId: Get User
+      produces:
+      - "application/json"
+      parameters:
+      - name: requestId
+        format: uuid
+        pattern: '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
+        in: header
+        description: Request Id
+        required: true
+        type: string
+      - name: authToken
+        in: header
+        description: Autorization Token
+        required: false
+        type: string
+      - name: channel
+        in: header
+        description: Channel Name
+        required: true 
+        type: string
+        default: "E-Business"
+      - name: timeStamp
+        in: header
+        description: Time date Unix Format
+        required: true
+        type: integer
+      - name: version
+        in: header
+        description: Version of API
+        default: 1.0.0
+        type: string
+      - name: entity
+        in: header
+        description: Entity
+        type: string
+      - name: body
+        in: body
+        description: Auth object
+        required: true
+        schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Succesfuly Created
+          schema:
+            $ref: '#/definitions/User'
+        '400':
+          description: Invalid  Data
+          schema:
+            $ref: '#/definitions/Response'
+
+definitions:
+  User:
+    type: object
+    required:
+    - tran_ref
+    properties:
+      tran_ref:
+        type: string
+        description: User Id*
+      userDescription:
+        type: string
+        description: User Description*
+      companyId:
+        type: string
+        description: Company Id*
+        default: Radian
+      defaultCompanyId:
+        type: string
+        description: Default Company Id 
+        default: Radian 
+      authorizatoinLevel:
+        description: Authorization Level
+        type: number
+        minimum: 1
+        maximum: 8
+        default: 8
+      multiLogin:
+        type: object
+        description: Multi Login
+        enum:
+            - T
+            - F
+        default: T
+      language:
+        type: string
+        description: Language
+        default: ENGLISH
+      activeStatus:
+        type: string
+        description: Active Status
+        enum:
+            - T
+            - F
+        default: T
+      effectiveDate:
+        type: string
+        description: Effective Date
+        format: yyyy-mm-dd
+        default: System Date
+        example: "2020-12-21"
+      expiryDate:
+        type: string
+        description: Expiry Date
+        format: "yyyy-mm-dd"
+        default: System Date + 100 Years 
+        example: "2022-12-21"
+      emailId:
+        type: string
+        description: Company Email Id
+      mobileNumber:
+        type: string
+        description: Company Mobile Number
+      tokenId:
+        type: string
+        description: Token Id Value
+      authorizationPref:
+        type: string
+        description: Authorization Preference(OTP/Hard Token/Soft Token)* 
+  Data:
+    type: object
+    properties:
+      requestId:
+        type: string
+        format: uuid
+        pattern: '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
+      status:
+        type: string
+        description: Possible Values 'SUCCESS' or 'FAIL'
+      statusCode:
+        type: string
+        description: 0 for Success and Non Zero for failure
+      description:
+        type: string
+
+  Response:
+    type: object
+    properties:
+      requestId:
+        type: string
+        format: uuid
+        pattern: '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
+      status:
+        type: string
+        description: Possible Values 'SUCCESS' or 'FAIL'
+      statusCode:
+        type: string
+        description: 0 for Success and Non Zero for failure
+      description:
+        type: string      
+
+        
+    
