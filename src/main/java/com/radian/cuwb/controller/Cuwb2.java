@@ -9,7 +9,7 @@ public class Cuwb2  extends SpringBootServletInitializer{
 
 	public static void main(String[] args) {
 		SpringApplication.run(Cuwb2.class, args);
-		tupperware
+
 	}
 
 }
