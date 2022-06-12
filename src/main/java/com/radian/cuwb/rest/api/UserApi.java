@@ -25,7 +25,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-06-08T13:19:07.446+04:00[Asia/Muscat]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-06-08T20:59:06.195+04:00[Asia/Muscat]")
 @Api(value = "user", description = "the user API")
 public interface UserApi {
 

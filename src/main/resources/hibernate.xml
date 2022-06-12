@@ -1,0 +1,9 @@
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.Oracle9Dialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@dev-rb:1521:RBDEVDB</property>
+    <property name="hibernate.connection.username">eximtrx</property>
+    <property name="hibernate.connection.password">eximtrx</property>
+  </session-factory>
+</hibernate-configuration>
